@@ -37,7 +37,6 @@ def _download_qt_impl(rctx):
     rctx.file(rctx.attr.requirements_txt.name, content = requirements_lock)
 
     # Install aqtinstall via pip
-    # TODO: Install this to the sandbox directory instead of system
     package_path = "." if not rctx.attr.requirements_txt.package else rctx.attr.requirements_txt.package
     rctx.report_progress("Installing pip requirements for aqtinstall")
     arguments = [python3.realpath, "-m", "pip", "install", "--target", "pip", "-r", "{}/{}".format(package_path, rctx.attr.requirements_txt.name)]
