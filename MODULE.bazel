@@ -33,6 +33,7 @@ qt.install(
     os = "linux",
     type = "desktop",
     build_file = "//:qt_linux_x86_64.BUILD",
+    qt_modules = ["qtcharts"],
 )
 qt.install(
     name = "qt_mac_aarch64",

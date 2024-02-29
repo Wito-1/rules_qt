@@ -13,6 +13,7 @@ def _aqt_install_impl(mctx):
                 type = arg.type,
                 build_file = arg.build_file,
                 windows_architecture = arg.windows_architecture,
+	        qt_modules = arg.qt_modules,
             )
 
 _install = tag_class(
@@ -23,9 +24,7 @@ _install = tag_class(
         "type": attr.string(default = "desktop"),
         "build_file": attr.label(default = "@rules_qt//:qt_linux_x86_64.BUILD"),
         "windows_architecture": attr.string(default = ""),
-#        "_qt_libraries_template": attr.label(default = "@rules_qt//:qt_libraries.bzl"),
-#        "_qt_toolchain": attr.label(default = "@rules_qt//tools:qt_toolchain.bzl"),
-#        "_qt_rules": attr.label(default = "@rules_qt//:qt.bzl"),
+	"qt_modules": attr.string_list(default = []),
     },
 )
 
