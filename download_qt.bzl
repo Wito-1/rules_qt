@@ -49,7 +49,7 @@ def _download_qt_impl(rctx):
     arguments = [python3.realpath, "-m", "aqt", "install-qt", "-O", ".", rctx.attr.os, rctx.attr.type, rctx.attr.version, rctx.attr.windows_architecture]
     if rctx.attr.qt_modules:
         qt_modules = [module.lower() for module in rctx.attr.qt_modules]
-        arguments += ["-m", " ".join(qt_modules)]
+        arguments += ["-m"] + qt_modules
 
     res = rctx.execute(arguments, environment = {"PYTHONPATH": "pip"})
     if res.return_code != 0:

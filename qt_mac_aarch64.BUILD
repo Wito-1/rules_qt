@@ -3,7 +3,7 @@ load("@rules_qt//:qt_libraries.bzl", "QT_LIBRARIES")
 [
     cc_library(
         name = "qt_%s_mac" % name,
-        hdrs = glob(["include/%s/**" % include_folder]),  # allow_empty = True
+        hdrs = glob(["include/%s/**" % include_folder], allow_empty = True),
         includes = [
             "include",
             "include/%s" % include_folder,
