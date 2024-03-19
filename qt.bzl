@@ -240,7 +240,7 @@ def _gen_moc_cc(ctx):
     info = ctx.toolchains["@rules_qt//tools:toolchain_type"].qtinfo
     package_path = "{}/{}".format(ctx.label.workspace_root, ctx.label.package)
     out_file = ctx.outputs.filename
-    args = [ctx.file.hdr.path, "-o", "{}".format(out_file.path), "-f", "{}".format(ctx.file.hdr.path)]
+    args = [ctx.file.hdr.path, "-o", "{}".format(out_file.path), "-f", "{}".format(ctx.file.hdr.short_path)]
 
     deps = []
     for dep in info.data:
