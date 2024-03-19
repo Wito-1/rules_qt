@@ -46,8 +46,11 @@ def _download_qt_impl(rctx):
 
     # Download the qt binaries to this directory
     rctx.report_progress("Downloading prebuilt QT libraries with aqt")
-    qt_modules = [module.lower() for module in rctx.attr.qt_modules]
-    arguments = [python3.realpath, "-m", "aqt", "install-qt", "-O", ".", rctx.attr.os, rctx.attr.type, rctx.attr.version, rctx.attr.windows_architecture, "-m", " ".join(qt_modules)]
+    arguments = [python3.realpath, "-m", "aqt", "install-qt", "-O", ".", rctx.attr.os, rctx.attr.type, rctx.attr.version, rctx.attr.windows_architecture]
+    if rctx.attr.qt_modules:
+        qt_modules = [module.lower() for module in rctx.attr.qt_modules]
+        arguments += ["-m", " ".join(qt_modules)]
+
     res = rctx.execute(arguments, environment = {"PYTHONPATH": "pip"})
     if res.return_code != 0:
         fail("Failed to download QT libraries:\n{}\n{}".format(" ".join([str(arg) for arg in arguments]), res.stderr))
@@ -81,7 +84,7 @@ download_qt = repository_rule(
         "version": attr.string(default = "6.4.0"),
         "os": attr.string(default = "linux"), 
         "type": attr.string(default = "desktop"),
-        "qt_modules": attr.string_list(default = ["all"]),
+        "qt_modules": attr.string_list(default = []),
         "windows_architecture": attr.string(default = ""),
         "build_file": attr.label(default = "@rules_qt//:qt_linux_x86_64.BUILD"),
         "requirements_txt": attr.label(default = "@rules_qt//:requirements_lock.txt"),
