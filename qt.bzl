@@ -327,7 +327,14 @@ def update_dict(source, env):
     result.update(env)
     return result
 
-x86_workspace = Label("@qt_linux_x86_64//:plugin_files").workspace_root
+# When trying to run a qt_cc_binary() that exist in an external repository,
+# eg. bazel run @external_repo://:external_cc_binary_target
+# The external repositories are symlinked to the right directories, however,
+# There is no `external` symlink inside the `_main` directory, causing the
+# environment variables to only be correct when running from the same
+# repository as the qt_cc_binary(). Changing to `../external` seems to
+# be always correct in both execution cases
+x86_workspace = Label("@qt_linux_x86_64//:plugin_files").workspace_root.replace("external/", "../")
 x86_package = Label("@qt_linux_x86_64//:plugin_files").package
 LINUX_ENV_DATA = {
     "QT_QPA_PLATFORM_PLUGIN_PATH": "{}/{}/plugins/platforms".format(x86_workspace, x86_package),
@@ -335,7 +342,7 @@ LINUX_ENV_DATA = {
     "QT_PLUGIN_PATH": "{}/{}/plugins".format(x86_workspace, x86_package),
 }
 
-mac_x86_workspace = Label("@qt_mac_x86_64//:plugin_files").workspace_root
+mac_x86_workspace = Label("@qt_mac_x86_64//:plugin_files").workspace_root.replace("external/", "../")
 mac_x86_package = Label("@qt_mac_x86_64//:plugin_files").package
 MAC_X64_ENV_DATA = {
     "QT_QPA_PLATFORM_PLUGIN_PATH": "{}/{}/share/qt/plugins/platforms".format(mac_x86_workspace, mac_x86_package),
@@ -343,7 +350,7 @@ MAC_X64_ENV_DATA = {
     "QT_PLUGIN_PATH": "{}/{}/share/qt/plugins".format(mac_x86_workspace, mac_x86_package),
 }
 
-win_workspace = Label("@qt_windows_x86_64//:plugin_files").workspace_root
+win_workspace = Label("@qt_windows_x86_64//:plugin_files").workspace_root.replace("external/", "../")
 win_package = Label("@qt_windows_x86_64//:plugin_files").package
 WINDOWS_ENV_DATA = {
     "QT_QPA_PLATFORM_PLUGIN_PATH": "{}/{}/plugins/platforms".format(win_workspace, win_package),
@@ -351,7 +358,7 @@ WINDOWS_ENV_DATA = {
     "QT_PLUGIN_PATH": "{}/{}/plugins".format(win_workspace, win_package),
 }
 
-mac_m1_workspace = Label("@qt_mac_aarch64//:plugin_files").workspace_root
+mac_m1_workspace = Label("@qt_mac_aarch64//:plugin_files").workspace_root.replace("external/", "../")
 mac_m1_package = Label("@qt_mac_aarch64//:plugin_files").package
 MAC_M1_ENV_DATA = {
     "QT_QPA_PLATFORM_PLUGIN_PATH": "{}/{}/share/qt/plugins/platforms".format(mac_m1_workspace, mac_m1_package),
