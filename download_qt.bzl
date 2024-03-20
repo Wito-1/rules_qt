@@ -31,6 +31,16 @@ def _download_qt_impl(rctx):
     if rctx.attr.type == "windows" and rctx.attr.windows_architecture == "":
         fail("When using windows as a download type, you need to provide a windows architecture to use")
 
+    rctx.download(
+        url = "https://bootstrap.pypa.io/get-pip.py",
+        output = "get-pip.py",
+        sha256 = "dfe9fd5c28dc98b5ac17979a953ea550cec37ae1b47a5116007395bfacff2ab9",
+        executable = True,
+    )
+    rctx.report_progress("Installing pip")
+    arguments = [python3.realpath, "get-pip.py"]
+    res = rctx.execute(arguments)
+
     # Write the Requirements Lock file
     # TODO: We might be able to just point to it, instead of reading and writing
     requirements_lock = rctx.read(rctx.attr.requirements_txt)
