@@ -46,7 +46,7 @@ filegroup(
 
 filegroup(
     name = "plugin_files",
-    srcs = glob(["share/qt/plugins/**/*"]),
+    srcs = glob(["share/qt/plugins/**/*"], allow_empty = True),
     visibility = ["//visibility:public"],
 )
 

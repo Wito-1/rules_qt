@@ -6,13 +6,10 @@ https://github.com/miurahr/aqtinstall
 Requires python to be installed.
 """
 
-_MODULE_CONTENTS = """
-module(
-    name = "{}",
-)
-
-bazel_dep("rules_qt", v
-"""
+# The qt_modules.bzl file is auto-generated based on the qt_modules() def in
+# the root BUILD.bazel file.
+load("//:qt_modules.bzl", "QT_MODULES")
+load("@bazel_skylib//lib:paths.bzl", "paths")
 
 _PATHS = {
   "mac": "macos",
@@ -21,39 +18,32 @@ _PATHS = {
 }
 
 def _download_qt_impl(rctx):
-    # Use python and aqtinstall to download the appropriate qt6 binaries
+    archiver_7z = rctx.download_and_extract(
+        url = rctx.attr.url_7z,
+        sha256 = rctx.attr.sha256_7z,
+        output = "archiver_7z",
+    )
 
-    #TODO: use rules_python's toolchain instead of system python3
-    python3 = rctx.which("python3")
-    if not python3:
-        fail("Could not find python3 on system - please make sure you've installed python3 and has been added to PATH environment variable")
+    archiver_bin = rctx.path("archiver_7z/7zz")
+    
+    # We have to write our own download_and_extract() because the one in ctx
+    # doesn't support 7z decompress & that's what qt modules are downloaded as.
+    for qt_module, download_info in QT_MODULES.items():
+        res = rctx.download(
+            url = download_info["url"],
+            sha256 = download_info["sha256"],
+            output = "archives/{}".format(paths.basename(download_info["url"]))
+        )
+        if not res.success:
+            fail("Failed to download:\n{}\n{}".format(download_info["url"], res.stderr))
 
-    if rctx.attr.type == "windows" and rctx.attr.windows_architecture == "":
-        fail("When using windows as a download type, you need to provide a windows architecture to use")
+        archive = paths.basename(download_info["url"])
+        arguments = [archiver_bin.realpath, "x"]
+        arguments += ["archives/{}".format(archive), "-o{}".format(".")]
+        res = rctx.execute(arguments)
+        if res.return_code != 0:
+            fail("Failed to decompress archive:\n{}\n{}".format(" ".join([str(arg) for arg in arguments]), res.stderr))
 
-    # Write the Requirements Lock file
-    # TODO: We might be able to just point to it, instead of reading and writing
-    requirements_lock = rctx.read(rctx.attr.requirements_txt)
-    rctx.file(rctx.attr.requirements_txt.name, content = requirements_lock)
-
-    # Install aqtinstall via pip
-    package_path = "." if not rctx.attr.requirements_txt.package else rctx.attr.requirements_txt.package
-    rctx.report_progress("Installing pip requirements for aqtinstall")
-    arguments = [python3.realpath, "-m", "pip", "install", "--target", "pip", "-r", "{}/{}".format(package_path, rctx.attr.requirements_txt.name)]
-    res = rctx.execute(arguments)
-    if res.return_code != 0:
-        fail("Failed to install pip aqtinstall:\n{}\n{}".format(" ".join([str(arg) for arg in arguments]), res.stderr))
-
-    # Download the qt binaries to this directory
-    rctx.report_progress("Downloading prebuilt QT libraries with aqt")
-    arguments = [python3.realpath, "-m", "aqt", "install-qt", "-O", ".", rctx.attr.os, rctx.attr.type, rctx.attr.version, rctx.attr.windows_architecture]
-    if rctx.attr.qt_modules:
-        qt_modules = [module.lower() for module in rctx.attr.qt_modules]
-        arguments += ["-m"] + qt_modules
-
-    res = rctx.execute(arguments, environment = {"PYTHONPATH": "pip"})
-    if res.return_code != 0:
-        fail("Failed to download QT libraries:\n{}\n{}".format(" ".join([str(arg) for arg in arguments]), res.stderr))
 
     path_lookup = rctx.attr.os
     if rctx.attr.os == "windows":
@@ -83,12 +73,11 @@ download_qt = repository_rule(
     attrs={
         "version": attr.string(default = "6.4.0"),
         "os": attr.string(default = "linux"), 
-        "type": attr.string(default = "desktop"),
-        "qt_modules": attr.string_list(default = []),
+        "target_sdk": attr.string(default = "desktop"),
         "windows_architecture": attr.string(default = ""),
         "build_file": attr.label(default = "@rules_qt//:qt_linux_x86_64.BUILD"),
-        "requirements_txt": attr.label(default = "@rules_qt//:requirements_lock.txt"),
-        "_aqt": attr.label(default="//:aqt"),
+        "url_7z": attr.string(default = "https://github.com/ip7z/7zip/releases/download/23.01/7z2301-linux-x86.tar.xz"),
+        "sha256_7z": attr.string(default = "a4cd3dba5dcb22d0543156258f77011a838a5402563011c2aca11c3562687857"),
         "_qt_libraries": attr.label(default = "@rules_qt//:qt_libraries.bzl"),
     }
 )
