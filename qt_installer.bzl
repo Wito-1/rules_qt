@@ -4,6 +4,7 @@ load("@aspect_bazel_lib//lib:write_source_files.bzl", "write_source_file")
 def _qt_installer_impl(ctx):
     args = ["install-qt"]
     args += ["--bzl-config-out", ctx.outputs.bzl_out.path]
+    args += ["--bzl-update-target", "@{}//{}:{}.update".format(ctx.label.workspace_name, ctx.label.package, ctx.label.name)]
     args += [ctx.attr.os, ctx.attr.target_sdk, ctx.attr.version]
     if ctx.attr.modules:
         args.append("-m")
