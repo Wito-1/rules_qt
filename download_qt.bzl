@@ -77,7 +77,7 @@ download_qt = repository_rule(
         "windows_architecture": attr.string(default = ""),
         "build_file": attr.label(default = "@rules_qt//:qt_linux_x86_64.BUILD"),
         "url_7z": attr.string(default = "https://github.com/ip7z/7zip/releases/download/23.01/7z2301-linux-x64.tar.xz"),
-        "sha256_7z": attr.string(default = "4e7f0dd0a5c380847e9dbf02e64f8b5b70af252e46826e256c092a5a4186a2f2"),
+        "sha256_7z": attr.string(default = "23babcab045b78016e443f862363e4ab63c77d75bc715c0b3463f6134cbcf318"),
         "_qt_libraries": attr.label(default = "@rules_qt//:qt_libraries.bzl"),
     }
 )
