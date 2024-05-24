@@ -5,100 +5,100 @@
 
 QT_MODULES = {
     "qt3d": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.debug_info.gcc_64/6.4.0-0-202209270704qt3d-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64-debug-symbols.7z",
-        "sha256": "f4e9b74cd3c7363c1ee42c66a65630703b63c2975cdb584c0ce66b4a13b242c8"
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.addons.qt3d.gcc_64/6.4.0-0-202209270704qt3d-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
+        "sha256": "d8b34d32549b42b51785675d73ee593a968f9225b9e8ddbed1a294cb27c3b156"
     },
     "qtcharts": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.debug_info.gcc_64/6.4.0-0-202209270704qtcharts-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64-debug-symbols.7z",
-        "sha256": "465331748a4e37f85955676cd7286de4f11bc5549f76ab35e2c7c8d1da5ec44a"
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.addons.qtcharts.gcc_64/6.4.0-0-202209270704qtcharts-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
+        "sha256": "ee4fc2285c49496e1966557642c1a961fd989081ccfd81430b750b7bf2b84ad4"
     },
     "qtconnectivity": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.debug_info.gcc_64/6.4.0-0-202209270704qtconnectivity-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64-debug-symbols.7z",
-        "sha256": "3326871757ba401660855cf006f39ba4dc878de29667e067877115ed56b5a024"
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.addons.qtconnectivity.gcc_64/6.4.0-0-202209270704qtconnectivity-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
+        "sha256": "294542a2b89dd48a2d22085e85d5097b72975cb82c1a445bbaf0e3982aad41f6"
     },
     "qtdatavis3d": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.debug_info.gcc_64/6.4.0-0-202209270704qtdatavis3d-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64-debug-symbols.7z",
-        "sha256": "6e8f7e21534314da4cfec5de82dff1c91da077fbd385178397c5aac70f78aa9f"
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.addons.qtdatavis3d.gcc_64/6.4.0-0-202209270704qtdatavis3d-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
+        "sha256": "899e068b861543059467bbf12b43ccf4f0d60d13befe31ecfe62392f18b0c7ba"
     },
     "qthttpserver": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.debug_info.gcc_64/6.4.0-0-202209270704qthttpserver-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64-debug-symbols.7z",
-        "sha256": "18da1844e209cfd42010a9581984b804175d50f08ab0b03b51c4be661dc2a70a"
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.addons.qthttpserver.gcc_64/6.4.0-0-202209270704qthttpserver-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
+        "sha256": "61ff18911a078b8b25420a86e4728d5f51f30b3a3ee211e660d31cd7486b8d32"
     },
     "qtimageformats": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.debug_info.gcc_64/6.4.0-0-202209270704qtimageformats-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64-debug-symbols.7z",
-        "sha256": "5691634e730b7b132af453c94331433114dfee1d770bc565deba91be58dfd888"
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.addons.qtimageformats.gcc_64/6.4.0-0-202209270704qtimageformats-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
+        "sha256": "657f6af0fe3c489b6b413528918b1f055f6e047d75776a3b9b2e697e349d0477"
     },
     "qtlanguageserver": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.debug_info.gcc_64/6.4.0-0-202209270704qtlanguageserver-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64-debug-symbols.7z",
-        "sha256": "17b82db5264bdecd4d8d712700a7c6919a9ea8a63cf3d1ba36f93dbf64fe4717"
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.addons.qtlanguageserver.gcc_64/6.4.0-0-202209270704qtlanguageserver-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
+        "sha256": "c25001d10161bc31a76348c44ed8244338849a17d66d4c4ee54ebcb14e98463f"
     },
     "qtlottie": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.debug_info.gcc_64/6.4.0-0-202209270704qtlottie-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64-debug-symbols.7z",
-        "sha256": "16215235fd1dd1d46d1176394d21382b3e86c22efc7192333df53fa285826d49"
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.addons.qtlottie.gcc_64/6.4.0-0-202209270704qtlottie-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
+        "sha256": "2747018803b7b972bd9c76d775ecc6d296fd44eee4dc4f50da75cf08d6126c0a"
     },
     "qtmultimedia": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.debug_info.gcc_64/6.4.0-0-202209270704qtmultimedia-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64-debug-symbols.7z",
-        "sha256": "07c4a05c8dbc85ca9bc65c1b791d30c51c1df341c85dff85b75653c335b0c5ad"
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.addons.qtmultimedia.gcc_64/6.4.0-0-202209270704qtmultimedia-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
+        "sha256": "53a29965311700c50d124856ddb80980ca8e8de14acf7f0cf13682099f361778"
     },
     "qtnetworkauth": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.debug_info.gcc_64/6.4.0-0-202209270704qtnetworkauth-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64-debug-symbols.7z",
-        "sha256": "e12056fcdd53b95f829816fe733a3c5f61b8eaf84ab9075ca71d66ff114554a1"
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.addons.qtnetworkauth.gcc_64/6.4.0-0-202209270704qtnetworkauth-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
+        "sha256": "f3ac84b94ad4869e41d4b6767d62dbe6a5ccb6e1c262b31db638b5e7f4064fd1"
     },
     "qtpdf": {
         "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.addons.qtpdf.gcc_64/6.4.0-0-202209270704qtpdf-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
         "sha256": "055bf9f904e44a89ef6d9c540fd180e3854f8792045c147323c722f16f624eb6"
     },
     "qtpositioning": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.debug_info.gcc_64/6.4.0-0-202209270704qtpositioning-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64-debug-symbols.7z",
-        "sha256": "7e8bad3049f25e6625be67465ee53819c1d9e457f28a3aa965c7f5017cb673e7"
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.addons.qtpositioning.gcc_64/6.4.0-0-202209270704qtpositioning-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
+        "sha256": "fe3aa78d23496c0f89310239fe96f1b150a53bebd29e86608737f9b1072ff7fc"
     },
     "qtquick3dphysics": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.debug_info.gcc_64/6.4.0-0-202209270704qtquick3dphysics-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64-debug-symbols.7z",
-        "sha256": "70cf31871c830298c689bed5aa5e07454fd0387bc21874346e18775a1992f126"
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.addons.qtquick3dphysics.gcc_64/6.4.0-0-202209270704qtquick3dphysics-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
+        "sha256": "e0fc383db0cd80060ba38dbee2959b083aaa6c3d59bd4ba107976f4e2a1b9019"
     },
     "qtremoteobjects": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.debug_info.gcc_64/6.4.0-0-202209270704qtremoteobjects-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64-debug-symbols.7z",
-        "sha256": "e52404e1d7e5800b3235a8405dff3c585835336d515bf08fbd609cf941243d47"
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.addons.qtremoteobjects.gcc_64/6.4.0-0-202209270704qtremoteobjects-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
+        "sha256": "17c3de554a9f7f2f87946d519d66b837cb679779af74ad3857f97097b6fc08b3"
     },
     "qtscxml": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.debug_info.gcc_64/6.4.0-0-202209270704qtscxml-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64-debug-symbols.7z",
-        "sha256": "d2e987a738d5cc241c10d783840912a67ec4e28dba932491906302e1ee2c1108"
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.addons.qtscxml.gcc_64/6.4.0-0-202209270704qtscxml-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
+        "sha256": "6128bc05ad7109cef4aaef51723f07447bfc6b8ed8da636caf340a36969bb62c"
     },
     "qtsensors": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.debug_info.gcc_64/6.4.0-0-202209270704qtsensors-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64-debug-symbols.7z",
-        "sha256": "ee9a064aebe65e108fb023d633e44b4f63f8a8d0db5e5bcaff6f19362ce5717f"
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.addons.qtsensors.gcc_64/6.4.0-0-202209270704qtsensors-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
+        "sha256": "8cbb0e481ffc8cca16fe00800e104dd5effecdabbead2366add51d2c3fbfb183"
     },
     "qtserialbus": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.debug_info.gcc_64/6.4.0-0-202209270704qtserialbus-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64-debug-symbols.7z",
-        "sha256": "74929eeb7dbcd487c1b6b1ef036ea16f81be4be83194e7f3b443bdeb1684df0e"
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.addons.qtserialbus.gcc_64/6.4.0-0-202209270704qtserialbus-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
+        "sha256": "604e847072750d992c2f068334a9c13497ca601c9d3a45573f6970a50cfae67b"
     },
     "qtserialport": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.debug_info.gcc_64/6.4.0-0-202209270704qtserialport-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64-debug-symbols.7z",
-        "sha256": "7ce13286194cd87eec19627624bd0213d6026a56868339069c0a1839419d2e02"
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.addons.qtserialport.gcc_64/6.4.0-0-202209270704qtserialport-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
+        "sha256": "216e603e20ef82478b4a04f6226ba6a4488b0ea92a03349abcf9812914a8f4b0"
     },
     "qtspeech": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.debug_info.gcc_64/6.4.0-0-202209270704qtspeech-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64-debug-symbols.7z",
-        "sha256": "55abc8662aa95fe9aa92decfadad0fcb67fce5cfc20f54d277d4bbf15e073ebc"
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.addons.qtspeech.gcc_64/6.4.0-0-202209270704qtspeech-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
+        "sha256": "a4b2e50db40f1e290acd794fdf17dd956cba17d5a20d29d93e94c10176198032"
     },
     "qtvirtualkeyboard": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.debug_info.gcc_64/6.4.0-0-202209270704qtvirtualkeyboard-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64-debug-symbols.7z",
-        "sha256": "d546bd70825472696479195eda06f983235557a19e1a65cdf378d7f2c92c4369"
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.addons.qtvirtualkeyboard.gcc_64/6.4.0-0-202209270704qtvirtualkeyboard-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
+        "sha256": "8e087e5c68b1e0009ce065ef03aa38a64ebc83b64d11f697f68811c963de9edf"
     },
     "qtwebchannel": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.debug_info.gcc_64/6.4.0-0-202209270704qtwebchannel-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64-debug-symbols.7z",
-        "sha256": "94ef58720e01ecf5b045d8d01092b248753de4f15047fe487d4c8b6627248c33"
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.addons.qtwebchannel.gcc_64/6.4.0-0-202209270704qtwebchannel-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
+        "sha256": "46b91fa1e2d2e20e2d52522012e8704b6911c1bca2de30cea256f037c5d34cac"
     },
     "qtwebengine": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.debug_info.gcc_64/6.4.0-0-202209270704qtwebengine-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64-debug-symbols.7z",
-        "sha256": "943b47044941f0b80c8c39fc7ed1d0e696adfadd747d4483cc54496897f5401c"
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.addons.qtwebengine.gcc_64/6.4.0-0-202209270704qtwebengine-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
+        "sha256": "dd4740fed3816fc9cab30d22397ccd81bfcf43ffbd7b0997012b96ebc999d680"
     },
     "qtwebsockets": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.debug_info.gcc_64/6.4.0-0-202209270704qtwebsockets-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64-debug-symbols.7z",
-        "sha256": "ad4c3d092c9d90a093e85d1ea290b32bb49fb12c065d88527a51f059fe8b6c34"
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.addons.qtwebsockets.gcc_64/6.4.0-0-202209270704qtwebsockets-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
+        "sha256": "3e523e029f18b991a078e818418430d76a1b9e8d0a3ffb1d00f3101a34762996"
     },
     "qtwebview": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.debug_info.gcc_64/6.4.0-0-202209270704qtwebview-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64-debug-symbols.7z",
-        "sha256": "0e244a9069b3241d67b08fb436c274e4b81d0da4e4914ffc811d2410a843d3bc"
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.addons.qtwebview.gcc_64/6.4.0-0-202209270704qtwebview-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
+        "sha256": "5e681a2190c49e108ae1b91f2d160171e3ad0bde4e120ca6b4d01e1be1b745c0"
     },
     "qtbase": {
         "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.gcc_64/6.4.0-0-202209270704qtbase-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
@@ -116,17 +116,21 @@ QT_MODULES = {
         "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.gcc_64/6.4.0-0-202209270704qttools-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
         "sha256": "9c0eb05e86e129e38643af6fa17e5dfe75d5b49e8e1bbef2baa348066537efb7"
     },
-    "qt5compat": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.qt5compat.gcc_64/6.4.0-0-202209270704qt5compat-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
-        "sha256": "03d71fb047a5e1dc5fe80a633f8b628ebd75f0d6052931fb82c6a8c858b0cfbe"
+    "qttranslations": {
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.gcc_64/6.4.0-0-202209270704qttranslations-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
+        "sha256": "72a644c4e6de3bdcbb8e85b8790b10858405c876ba19feac95a5b5087b72da18"
     },
     "qtwayland": {
         "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.qtwaylandcompositor.gcc_64/6.4.0-0-202209270704qtwayland-compositor-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
         "sha256": "f902214a1ab83cfd5f1399ffefca9d45f1763b14acebcc2e0abcde279be98efb"
     },
-    "qtshadertools": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.qtshadertools.gcc_64/6.4.0-0-202209270704qtshadertools-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
-        "sha256": "23e7231917cee000350c85c3f7d6018df6f7a67ebe4ef3c0bbff51c69bbd118d"
+    "icu": {
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.gcc_64/6.4.0-0-202209270704icu-linux-Rhel7.2-x64.7z",
+        "sha256": "2ca8e8fb1af43cfd654bf89f82b1cc8d3d7bcb30db52ee0181231f7a2692a5d3"
+    },
+    "qt5compat": {
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.qt5compat.gcc_64/6.4.0-0-202209270704qt5compat-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
+        "sha256": "03d71fb047a5e1dc5fe80a633f8b628ebd75f0d6052931fb82c6a8c858b0cfbe"
     },
     "qtquick3d": {
         "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.qtquick3d.gcc_64/6.4.0-0-202209270704qtquick3d-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
@@ -136,24 +140,8 @@ QT_MODULES = {
         "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.qtquicktimeline.gcc_64/6.4.0-0-202209270704qtquicktimeline-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
         "sha256": "deeb73bcfae72a40676187058dab814ed8e8515f997176cf5a5f23d57c69ea46"
     },
-    "qtcoap": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.debug_info.gcc_64/6.4.0-0-202209270704qtcoap-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64-debug-symbols.7z",
-        "sha256": "50b3a66a4672d0ed1502650cdb6dab32f8f098c7db25276c7777909c5d34da2a"
-    },
-    "qtmqtt": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.debug_info.gcc_64/6.4.0-0-202209270704qtmqtt-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64-debug-symbols.7z",
-        "sha256": "97ba74dd3e16db011561e1f61d7c61ca9fb2e7e0d73e3df72d593d2738c710ba"
-    },
-    "qtopcua": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.debug_info.gcc_64/6.4.0-0-202209270704qtopcua-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64-debug-symbols.7z",
-        "sha256": "31ca6ce66f8cca146524ce94206706754e15c80af1a01ba8323608204e6d2438"
-    },
-    "qttranslations": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.gcc_64/6.4.0-0-202209270704qttranslations-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
-        "sha256": "72a644c4e6de3bdcbb8e85b8790b10858405c876ba19feac95a5b5087b72da18"
-    },
-    "icu": {
-        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.gcc_64/6.4.0-0-202209270704icu-linux-Rhel7.2-x64.7z",
-        "sha256": "2ca8e8fb1af43cfd654bf89f82b1cc8d3d7bcb30db52ee0181231f7a2692a5d3"
+    "qtshadertools": {
+        "url": "https://download.qt.io/online/qtsdkrepository/linux_x64/desktop/qt6_640/qt.qt6.640.qtshadertools.gcc_64/6.4.0-0-202209270704qtshadertools-Linux-RHEL_8_4-GCC-Linux-RHEL_8_4-X86_64.7z",
+        "sha256": "23e7231917cee000350c85c3f7d6018df6f7a67ebe4ef3c0bbff51c69bbd118d"
     }
 }

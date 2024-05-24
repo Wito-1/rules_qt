@@ -129,12 +129,14 @@ class BazelCli(Cli):
         #    _archive_dest = Cli.choose_archive_dest(archive_dest, keep, temp_dir)
         download_info_dict = {}
         for archive in qt_archives.get_packages():
-            url = os.path.join(archive.base_url, archive.archive_path)
-            sha256 = get_hash(archive.archive_path, "sha256", 60).hex()
-            download_info_dict[archive.name] = {}
-            download_info_dict[archive.name]["url"] = url
-            download_info_dict[archive.name]["sha256"] = sha256
-            print(f"stored: {archive.name}")
+            # Skip archives that are only for debug symbols
+            if "debug_info" not in archive.archive_path:
+                url = os.path.join(archive.base_url, archive.archive_path)
+                sha256 = get_hash(archive.archive_path, "sha256", 60).hex()
+                download_info_dict[archive.name] = {}
+                download_info_dict[archive.name]["url"] = url
+                download_info_dict[archive.name]["sha256"] = sha256
+                print(f"stored: {archive.name}")
         # write the download info into a file
         bzl_download_info_file = os.path.join(os.environ.get("BUILD_WORKSPACE_DIRECTORY", "."), args.bzl_config_out)
         with open(bzl_download_info_file, "w") as file:
