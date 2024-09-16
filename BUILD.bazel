@@ -1,4 +1,6 @@
 load("@rules_qt//:qt_libraries.bzl", "QT_LIBRARIES")
+load("@rules_qt//:qt_installer.bzl", "qt_installer")
+load("@rules_python//python:pip.bzl", "compile_pip_requirements")
 
 config_setting(
     name = "osx_arm64",
@@ -47,4 +49,25 @@ cc_library(
     name = "qt",
     visibility = ["//visibility:public"],
     deps = all_qt_libs + [":qt_hdrs"],
+)
+
+compile_pip_requirements(
+    name = "requirements",
+    src = "requirements.in",
+    requirements_txt = "requirements_lock.txt",
+)
+
+# Creates a qt_modules.bzl file in this directory
+# To update the list of modules & hashes, run the following:
+# bazel run //:qt_install_x86_64.update
+# 
+# See aqtinstall for expected values
+# https://aqtinstall.readthedocs.io/en/latest/
+qt_installer(
+    name = "qt_install_x86_64",
+    os = "linux", # use linux_arm64 target for arm
+    target_sdk = "desktop",
+    version = "6.4.0",
+    bzl_out = "qt_modules.bzl",
+    modules = ["all"],
 )
