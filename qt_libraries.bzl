@@ -2,7 +2,8 @@
 
 QT_LIBRARIES = [
     ## base and widgets
-    ("core", "QtCore", "Qt6Core", []),
+    ("xcb", "QtXcbQpa", "Qt6XcbQpa", []),
+    ("core", "QtCore", "Qt6Core", [":qt_xcb"]),
     ("dbus", "QtDBus", "Qt6DBus", []),
     ("gui", "QtGui", "Qt6Gui", [":qt_core", ":qt_dbus"]),
     ("bluetooth", "QtBluetooth", "Qt6Bluetooth", [":qt_core"]),
@@ -23,8 +24,8 @@ QT_LIBRARIES = [
     ("network_auth", "QtNetworkAuth", "Qt6NetworkAuth", [":qt_network", ":qt_core"]),
     ("nfc", "QtNfc", "Qt6Nfc", [":qt_core"]),
     ("opengl_widgets", "QtOpenGLWidgets", "Qt6OpenGLWidgets", [":qt_opengl", ":qt_widgets", ":qt_gui", ":qt_core"]),
-    # ("pdf", "QtPdf", "Qt6Pdf", [":qt_gui", ":qt_network", ":qt_core"]),
-    # ("pdf_widgets", "Qt6PdfWidgets", "Qt6PdfWidgets", [":qt_pdf", ":qt_widgets", ":qt_gui", ":qt_core"]),
+    ("pdf", "QtPdf", "Qt6Pdf", [":qt_gui", ":qt_network", ":qt_core"]),
+    ("pdf_widgets", "Qt6PdfWidgets", "Qt6PdfWidgets", [":qt_pdf", ":qt_widgets", ":qt_gui", ":qt_core"]),
     ("widgets", "QtWidgets", "Qt6Widgets", [":qt_core", ":qt_gui"]),
     ("positioning", "QtPositioning", "Qt6Positioning", [":qt_core"]),
     ("print_support", "QtPrintSupport", "Qt6PrintSupport", [":qt_widgets", ":qt_gui", ":qt_core"]),

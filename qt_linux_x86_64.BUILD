@@ -7,6 +7,10 @@ load("@rules_qt//:qt_libraries.bzl", "QT_LIBRARIES")
             "lib/lib%s.so*" % library_name,
             "lib/libicu*.so*",
         ], allow_empty = True),
+        data = glob([
+            "lib/lib%s.so*" % library_name,
+            "lib/libicu*.so*",
+        ], allow_empty = True),
         hdrs = glob(["include/%s/**" % include_folder], allow_empty = True),
         includes = [
             "include",

@@ -36,7 +36,7 @@ gen_ui_header = rule(
     toolchains = ["@rules_qt//tools:toolchain_type"],
 )
 
-def qt_ui_library(name, ui, deps, target_compatible_with = [], **kwargs):
+def qt_ui_library(name, ui, deps, target_compatible_with = ["@platforms//cpu:x86_64"], **kwargs):
     """Compiles a QT UI file and makes a library for it.
 
     Args:
@@ -66,6 +66,7 @@ def qt_ui_library(name, ui, deps, target_compatible_with = [], **kwargs):
         **kwargs
     )
 
+
 def _gencpp(ctx):
     info = ctx.toolchains["@rules_qt//tools:toolchain_type"].qtinfo
 
@@ -76,17 +77,29 @@ def _gencpp(ctx):
             target_file = target_file,
         )
 
-    args = ["--name", ctx.attr.resource_name, "--output", ctx.outputs.cpp.path, ctx.file.qrc.path]
+    rcc_exe = ctx.actions.declare_file(ctx.label.name + "_rcc_compile")
+
+    ctx.actions.expand_template(
+        template = ctx.file._cpp_gen_template,
+        output = rcc_exe,
+        substitutions = {
+            "{{RCC}}": info.rcc_path,
+            "{{OUTPUT}}": ctx.outputs.cpp.path,
+        },
+        is_executable = True,
+    )
+
+    args = ["--name", ctx.attr.resource_name, ctx.file.qrc.path]
 
     deps = []
     for dep in info.data:
         deps += dep[DefaultInfo].files.to_list()
 
     ctx.actions.run(
-        inputs = deps + [resource for _, resource in resource_files] + [ctx.file.qrc],
+        inputs = deps + [resource for _, resource in resource_files] + [ctx.file.qrc, rcc_exe],
         outputs = [ctx.outputs.cpp],
         arguments = args,
-        executable = info.rcc_path,
+        executable = rcc_exe.path,
         execution_requirements = get_execution_requirements(ctx),
     )
     return [OutputGroupInfo(cpp = depset([ctx.outputs.cpp]))]
@@ -98,6 +111,7 @@ gencpp = rule(
         "files": attr.label_list(allow_files = True, mandatory = False),
         "qrc": attr.label(allow_single_file = True, mandatory = True),
         "cpp": attr.output(),
+        "_cpp_gen_template": attr.label(allow_single_file = True, default = "//:rcc_gen.sh.tpl")
     },
     toolchains = ["@rules_qt//tools:toolchain_type"],
 )
@@ -107,17 +121,29 @@ def _gencpp2(ctx):
 
     resource_files = ctx.files.files
 
-    args = ["--name", ctx.attr.resource_name, "--output", ctx.outputs.cpp.path, ctx.file.qrc.path]
+    rcc_exe = ctx.actions.declare_file(ctx.label.name + "_rcc_compile")
+
+    ctx.actions.expand_template(
+        template = ctx.file._cpp_gen_template,
+        output = rcc_exe,
+        substitutions = {
+            "{{RCC}}": info.rcc_path,
+            "{{OUTPUT}}": ctx.outputs.cpp.path,
+        },
+        is_executable = True,
+    )
+
+    args = ["--name", ctx.attr.resource_name, ctx.file.qrc.path]
 
     deps = []
     for dep in info.data:
         deps += dep[DefaultInfo].files.to_list()
 
     ctx.actions.run(
-        inputs = deps + [resource for resource in resource_files] + [ctx.file.qrc],
+        inputs = deps + [resource for resource in resource_files] + [rcc_exe, ctx.file.qrc],
         outputs = [ctx.outputs.cpp],
         arguments = args,
-        executable = info.rcc_path,
+        executable = rcc_exe.path,
         execution_requirements = get_execution_requirements(ctx),
     )
     return [OutputGroupInfo(cpp = depset([ctx.outputs.cpp]))]
@@ -129,6 +155,7 @@ gencpp2 = rule(
         "files": attr.label_list(allow_files = True, mandatory = False),
         "qrc": attr.label(allow_single_file = True, mandatory = True),
         "cpp": attr.output(),
+        "_cpp_gen_template": attr.label(allow_single_file = True, default = "//:rcc_gen.sh.tpl")
     },
     toolchains = ["@rules_qt//tools:toolchain_type"],
 )
@@ -159,7 +186,7 @@ genqrc = rule(
     },
 )
 
-def qt_resource_via_qrc(name, qrc_file, files, target_compatible_with = [], **kwargs):
+def qt_resource_via_qrc(name, qrc_file, files, target_compatible_with = ["@platforms//cpu:x86_64"], **kwargs):
     """Creates a cc_library containing the contents of all input files using qt's `rcc` tool.
 
     Args:
@@ -197,7 +224,7 @@ def qt_resource_via_qrc(name, qrc_file, files, target_compatible_with = [], **kw
         **kwargs
     )
 
-def qt_resource(name, files, target_compatible_with = [], **kwargs):
+def qt_resource(name, files, target_compatible_with = ["@platforms//cpu:x86_64"], **kwargs):
     """Creates a cc_library containing the contents of all input files using qt's `rcc` tool.
 
     Args:
@@ -271,7 +298,7 @@ gen_moc_cc = rule(
 )
 
 
-def qt_cc_library(name, srcs, hdrs, normal_hdrs = [], deps = None, copts = [], target_compatible_with = [], **kwargs):
+def qt_cc_library(name, srcs, hdrs, normal_hdrs = [], deps = None, copts = [], target_compatible_with = ["@platforms//cpu:x86_64"], **kwargs):
     """Compiles a QT library and generates the MOC for it.
 
     Args:
@@ -366,7 +393,7 @@ MAC_M1_ENV_DATA = {
     "QT_PLUGIN_PATH": "{}/{}/share/qt/plugins".format(mac_m1_workspace, mac_m1_package),
 }
 
-def qt_cc_binary(name, srcs, deps = None, copts = [], data = [], env = {}, **kwargs):
+def qt_cc_binary(name, srcs, deps = None, copts = [], data = [], env = {}, target_compatible_with = ["@platforms//cpu:x86_64"], **kwargs):
     """ cc_binary which depend on qt_cc_library or want to use qt tools
 
     Args:
@@ -397,10 +424,11 @@ def qt_cc_binary(name, srcs, deps = None, copts = [], data = [], env = {}, **kwa
             "@rules_qt//:osx_arm64": mac_m1_env_data,
             "@platforms//os:windows": windows_env_data,
         }),
+        target_compatible_with = target_compatible_with,
         **kwargs
     )
 
-def qt_cc_test(name, srcs, deps = None, copts = [], data = [], env = {}, **kwargs):
+def qt_cc_test(name, srcs, deps = None, copts = [], data = [], env = {}, target_compatible_with = ["@platforms//cpu:x86_64"], **kwargs):
     """ cc_test which depend on qt_cc_library or want to use qt tools
 
     Args:
@@ -431,5 +459,6 @@ def qt_cc_test(name, srcs, deps = None, copts = [], data = [], env = {}, **kwarg
             "@rules_qt//:osx_arm64": mac_m1_env_data,
             "@platforms//os:windows": windows_env_data,
         }),
+        target_compatible_with = target_compatible_with,
         **kwargs
     )

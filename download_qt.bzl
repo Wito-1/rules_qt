@@ -18,9 +18,12 @@ _PATHS = {
 }
 
 def _download_qt_impl(rctx):
+    host_platform = "{}-{}".format(rctx.os.name, rctx.os.arch)
+    _url = rctx.attr.url_7z[host_platform]
+    _sha = rctx.attr.sha256_7z[host_platform]
     archiver_7z = rctx.download_and_extract(
-        url = rctx.attr.url_7z,
-        sha256 = rctx.attr.sha256_7z,
+        url = _url,
+        sha256 = _sha,
         output = "archiver_7z",
     )
 
@@ -76,8 +79,14 @@ download_qt = repository_rule(
         "target_sdk": attr.string(default = "desktop"),
         "windows_architecture": attr.string(default = ""),
         "build_file": attr.label(default = "@rules_qt//:qt_linux_x86_64.BUILD"),
-        "url_7z": attr.string(default = "https://github.com/ip7z/7zip/releases/download/23.01/7z2301-linux-x64.tar.xz"),
-        "sha256_7z": attr.string(default = "23babcab045b78016e443f862363e4ab63c77d75bc715c0b3463f6134cbcf318"),
+        "url_7z": attr.string_dict(default = {
+            "linux-amd64": "https://github.com/ip7z/7zip/releases/download/23.01/7z2301-linux-x64.tar.xz",
+            "linux-aarch64": "https://github.com/ip7z/7zip/releases/download/23.01/7z2301-linux-arm64.tar.xz",
+        }),
+        "sha256_7z": attr.string_dict(default = {
+            "linux-amd64": "23babcab045b78016e443f862363e4ab63c77d75bc715c0b3463f6134cbcf318",
+            "linux-aarch64": "34e938fc4ba8ca6a835239733d9c1542ad8442cc037f43ca143a119bdf322b63",
+        }),
         "_qt_libraries": attr.label(default = "@rules_qt//:qt_libraries.bzl"),
     }
 )

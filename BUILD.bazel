@@ -71,3 +71,5 @@ qt_installer(
     bzl_out = "qt_modules.bzl",
     modules = ["all"],
 )
+
+exports_files(["rcc_gen.sh.tpl"])
